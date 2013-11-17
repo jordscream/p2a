@@ -1,0 +1,85 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="linebordertop"></div>
+    <div class="topheader"></div>
+    <div class="lineborderbottom"></div>
+
+    {% include "P2AMainBundle:Common:header.html.twig" %}
+    <div class="body">
+    <div class="container">
+    <!-- SLIDER -->
+    <div class="row-fluid">
+        <div class="camera_wrap pattern_4 camera_emboss" id="camera_wrap_4">
+            <div data-src="/img/demo/img2.jpg">
+                <div class="camera_caption fadeFromTop">
+                    <h1>{% trans %}Clients{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a></h1>
+							<span>
+                                {{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'clients'})) }}
+							</span>
+                </div>
+            </div>
+            <div data-src="/img/demo/img1.jpg">
+                <div class="camera_caption fadeFromRight">
+                    <h1>{% trans %}Candidats{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
+                    </h1>
+							<span>
+							{{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'candidats'})) }}
+							</span>
+                </div>
+            </div>
+            <div data-src="/img/demo/img3.jpg">
+                <div class="camera_caption fadeFromRight">
+                    <h1>{% trans %}P2A Recruitment{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
+                    </h1>
+							<span>
+							{{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'p2a'})) }}
+							</span>
+                </div>
+            </div>
+            <div data-src="/img/demo/img1.jpg">
+                <div class="camera_caption fadeFromRight">
+                    <h1>{% trans %}Contact{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
+                    </h1>
+							<span>
+							{{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'contact'})) }}
+							</span>
+                </div>
+            </div>
+
+            <div data-src="/img/demo/img2.jpg">
+                <div class="camera_caption fadeFromTop">
+                    <h1>{% trans %}Evoluer au Luxembourg{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a></h1>
+							<span>
+                                {{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'evolve'})) }}
+							</span>
+                </div>
+            </div>
+
+        </div>
+        <div class="text-center">
+            <img src="/img/sha.png" class="slidershadowcam" alt="">
+        </div>
+    </div>
+    <!-- INTRO  -->
+    <div class="row-fluid text-center intro">
+        <div class="span12">
+            <h1>{% trans %}Société{% endtrans %} <span class="primarycolor">P2A Recruitment</span></h1>
+            <p class="featured lead bottom10">
+                {% trans %}texte à définir{% endtrans %}
+            </p>
+        </div>
+    </div>
+
+    <div class="clearfix">
+    </div>
+    <br/>
+
+    <div class="clearfix">
+    </div>
+
+
+    </div><!-- /.container -->
+    </div><!-- /.body -->
+    {% include "P2AMainBundle:Common:footer.html.twig" %}
+{% endblock %}

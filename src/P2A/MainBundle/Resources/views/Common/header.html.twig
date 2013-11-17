@@ -1,0 +1,40 @@
+<!-- LOGO & NAVIGATION -->
+<div class="container">
+    <div class="row-fluid">
+        <div class="span8">
+            <a class="btn btn-navbar pull-right" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-align-justify"></i>
+            </a>
+            <a href="{{ path('homepage') }}"><img src="/img/logo1.png" class="logo" alt="logo"></a>
+            <p class="description">
+                {% trans %}texte à définir{% endtrans %}
+            </p>
+        </div>
+        <div class="span4">
+            <div class="rightinfo text-right">
+                <i class="icon-phone"></i>&nbsp; Tél: +33 1 83 83 44 73<br>
+                <i class="icon-envelope"></i>&nbsp;  info@p2arecruitment.com
+            </div>
+        </div>
+    </div>
+    <div class="row-nav navbar">
+        <div class="nav-collapse collapse">
+            <div class="navbar-inner">
+                <ul class="nav">
+                    <li class="active selected"><a href="{{ path('homepage') }}">{% trans %}Accueuil{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('view_page', {'block': 'clients'}) }}">{% trans %}Clients{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('view_page', {'block': 'candidats'}) }}">{% trans %}Candidats{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('view_page', {'block': 'p2a'}) }}">{% trans %}P2A Recruitment{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('view_page', {'block': 'contact'}) }}">{% trans %}Contact{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                    <li><a href="{{ path('view_page', {'block': 'evolve'}) }}">{% trans %}Evoluer au Luxembourg{% endtrans %}</a></li>
+                    <li class="divider-vertical"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+    <div class="linebordertop"></div>
+    <div class="topheader"></div>
+    <div class="lineborderbottom"></div>
+
+    {% include "P2AMainBundle:Common:header.html.twig" %}
+    <div class="body">
+    <div class="container">
+    <!-- SLIDER -->
+    <div class="row-fluid">
+
+        <div class="text-center">
+            <img src="/img/sha.png" class="slidershadowcam" alt="">
+        </div>
+    </div>
+    <!-- INTRO  -->
+    <div class="row-fluid text-center intro">
+        <div class="span12" style="text-align: left">
+            <h1>{{ article.getTitleLang(app.request.get('_locale')) }}</h1>
+            <p class="featured lead bottom10">
+                {{ article.getDescriptionLang(app.request.get('_locale'))|raw }}
+            </p>
+        </div>
+    </div>
+
+    <div class="clearfix">
+    </div>
+    <br/>
+
+    <div class="clearfix">
+    </div>
+
+
+    </div><!-- /.container -->
+    </div><!-- /.body -->
+    {% include "P2AMainBundle:Common:footer.html.twig" %}
+{% endblock %}
