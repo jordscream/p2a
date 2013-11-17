@@ -220,21 +220,21 @@ class Article
         return $this->titleEn;
     }
 
-    public function getTitleLang($lang)
+    public function getTitleLang($lang = 'fr')
     {
         if ($lang == 'en')
             return $this->titleEn;
         return $this->title;
     }
 
-    public function getDescriptionLang($lang)
+    public function getDescriptionLang($lang = 'fr')
     {
         if ($lang == 'en')
             return $this->descriptionEn;
         return $this->description;
     }
 
-    public function getShortDescriptionLang($lang)
+    public function getShortDescriptionLang($lang = 'fr')
     {
         if ($lang == 'en')
             return $this->shortDescriptionEn;
