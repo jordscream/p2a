@@ -182,5 +182,5 @@ stfalcon_tinymce:
 jms_i18n_routing:
     default_locale: fr
     locales: [en, fr]
-    strategy: prefix
+    strategy: prefix_except_default
     redirect_to_host: true
