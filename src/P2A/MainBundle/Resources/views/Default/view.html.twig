@@ -22,6 +22,36 @@
             <p class="featured lead bottom10">
                 {{ article.getDescriptionLang(app.request.get('_locale'))|raw }}
             </p>
+
+           {% if (article.blockName == 'candidats') %}
+               <form class="form-inline">
+                   <input type="text" class="input" placeholder="Mot clés" name="search">
+                   <select name="category">
+                       <option value="">Toutes les catégories</option>
+                       {% for category in categories %}
+                           <option value="{{ category.id }}">{{ category }}</option>
+                       {% endfor %}
+                   </select>
+                   <select name="location">
+                       <option value="">N'importe ou</option>
+                       {% for location in locations %}
+                           <option value="{{ location.id }}">{{ location }}</option>
+                       {% endfor %}
+                   </select>
+                   <br/><br/>
+                   <input type="checkbox" value="CDI" name="type" /> CDI &nbsp;&nbsp;
+                   <input type="checkbox" value="CDD" name="type" /> CDD &nbsp;&nbsp;
+                   <input type="checkbox" value="Intérim" name="type" /> Itérim &nbsp;&nbsp;
+                   <input type="checkbox" value="Emploi formation" name="type" /> Emploi formation &nbsp;&nbsp;
+                   <input type="checkbox" value="Stage" name="type" /> Stage &nbsp;&nbsp;
+                   <button id="search" type="button" class="btn">Rechercher un poste</button>
+               </form>
+           {% endif %}
+
+            <div class="result">
+
+            </div>
+
         </div>
     </div>
 
@@ -36,4 +66,26 @@
     </div><!-- /.container -->
     </div><!-- /.body -->
     {% include "P2AMainBundle:Common:footer.html.twig" %}
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $('#search').click(function(){
+
+                $.ajax({
+                   url: "{{ path('search') }}",
+                   data: $('form').serialize(),
+                   type: 'POST',
+                   success: function(data){
+
+                        $('.result').html(data);
+
+                   }
+                });
+
+
+            });
+
+        });
+    </script>
 {% endblock %}

@@ -17,6 +17,33 @@
                 <argument>P2AMainBundle</argument>
             </call>
         </service>
+        <service id="sonata.post.admin.post" class="P2A\MainBundle\Admin\PostAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="offre" label="offres" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>P2A\MainBundle\Entity\Post</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>P2AMainBundle</argument>
+            </call>
+        </service>
+        <service id="sonata.location.admin.location" class="P2A\MainBundle\Admin\LocationAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="lieu offre" label="lieu offre" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>P2A\MainBundle\Entity\Location</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>P2AMainBundle</argument>
+            </call>
+        </service>
+        <service id="sonata.category.admin.category" class="P2A\MainBundle\Admin\CategoryOfferAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="categories" label="categories" label_catalogue="SonataUserBundle" label_translator_strategy="sonata.admin.label.strategy.underscore" />
+            <argument />
+            <argument>P2A\MainBundle\Entity\CategoryOffer</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+            <call method="setTranslationDomain">
+                <argument>P2AMainBundle</argument>
+            </call>
+        </service>
 
     </services>
 

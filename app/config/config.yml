@@ -137,10 +137,14 @@ sonata_admin:
             User/Groupes:
                 items:
                   - sonata.user.admin.user
-                  - sonata.user.admin.group
             Article:
                 items:
                     - sonata.article.admin.article
+            Offres:
+                items:
+                    - sonata.post.admin.post
+                    - sonata.location.admin.location
+                    - sonata.category.admin.category
 
 stfalcon_tinymce:
     include_jquery: false
@@ -179,7 +183,4 @@ jms_i18n_routing:
     default_locale: fr
     locales: [en, fr]
     strategy: prefix
-    hosts:
-        en: p2a.local.com
-        fr: p2a.local.fr
     redirect_to_host: true
