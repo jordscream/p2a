@@ -1,0 +1,54 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+<div style="margin-left: 25px">
+    {% if (status is defined) %}
+        <div class="alert alert-success">
+            {% trans %}Votre candidature a bien été envoyé!{% endtrans %}
+        </div>
+    {% else %}
+    <form role="form" action="{{ path('postuler') }}?id={{ id }}" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="exampleInputEmail1">{% trans %}Nom{% endtrans %}</label>
+            <input name="name" type="text" class="form-control" id="exampleInputEmail1" placeholder="{% trans %}Nom{% endtrans %}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{% trans %}Prénom{% endtrans %}</label>
+            <input name="firstname" type="text" class="form-control" id="exampleInputPassword7" placeholder="{% trans %}Prenom{% endtrans %}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{% trans %}Email{% endtrans %}</label>
+            <input name="email" type="email" class="form-control" id="exampleInputPassword8" placeholder="{% trans %}Email{% endtrans %}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{% trans %}Téléphone{% endtrans %}</label>
+            <input name="tel" type="text" class="form-control" id="exampleInputPassword9" placeholder="{% trans %}Téléphone{% endtrans %}">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">{% trans %}Commentaire{% endtrans %}</label>
+            <textarea name="commentaire" class="form-control" id="exampleInputPassword10" style="width: 532px; height: 76px;"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="exampleInputFile">{% trans %}CV{% endtrans %}CV</label>
+            <input type="file" id="exampleInputFile" name="cv">
+            <p class="help-block">{% trans %}Uploader votre CV ici{% endtrans %}</p>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">{% trans %}Lettre de motivation{% endtrans %}</label>
+            <input type="file" id="exampleInputFile" name="motivation">
+            <p class="help-block">{% trans %}Uploader votre lettre de motivation ici{% endtrans %}</p>
+        </div>
+
+        <button type="submit" class="btn btn-info">{% trans %}Postuler{% endtrans %}</button>
+    </form>
+    {% endif %}
+
+</div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script src="/js/plugins.js"></script>
+    <script src="/js/prettyPhoto.js"></script>
+    <script src="/js/custom.js"></script>
+    <script src="/js/thickbox.js"></script>
+{% endblock %}

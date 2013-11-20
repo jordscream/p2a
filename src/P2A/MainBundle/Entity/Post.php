@@ -52,14 +52,14 @@ class Post
     /**
      * @var string
      *
-     * @ORM\OneToOne(targetEntity="Location")
+     * @ORM\ManyToOne(targetEntity="Location")
      */
     private $location;
 
     /**
      * @var string
      *
-     * @ORM\OneToOne(targetEntity="CategoryOffer")
+     * @ORM\ManyToOne(targetEntity="CategoryOffer")
      */
     private $category;
 
@@ -111,6 +111,13 @@ class Post
      * @ORM\Column(name="dateStart", type="date")
      */
     private $dateStart;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="date")
+     */
+    private $createdAt;
 
     /**
      * @var string
@@ -457,4 +464,63 @@ class Post
     {
         return $this->contact;
     }
+
+    /**
+     * @param \DateTime $createdAt
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+
+    public function getTitleLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->title;
+        return $this->titleEn;
+    }
+
+    public function getDescriptionLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->description;
+        return $this->descriptionEn;
+    }
+
+    public function getResponsabilityLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->responsability;
+        return $this->responsabilityEn;
+    }
+
+    public function getProfileLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->profil;
+        return $this->profilEn;
+    }
+
+    public function getCategoryLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->category->getName();
+        return $this->category->getNameEn();
+    }
+
+    public function getLocationLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->location->getName();
+        return $this->location->getName();
+    }
+
 }

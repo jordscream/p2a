@@ -91,10 +91,10 @@ jQuery(document).ready(function ($) {
 		//start the ajax
 		$.ajax({
 			//this is the php file that processes the data and sends email
-			url: "contact.php",	
+			url: "contact.html",
 			
 			//GET method is used
-			type: "GET",
+			type: "POST",
 
 			//pass the data			
 			data: data,		
@@ -105,7 +105,7 @@ jQuery(document).ready(function ($) {
 			//success
 			success: function (html) {				
 				//if contact.php returned 1/true (send mail success)
-				if (html==1) {
+				if (html=="1") {
 				
 					//show the success message
 					$('.done').fadeIn('slow');

@@ -25,26 +25,26 @@
 
            {% if (article.blockName == 'candidats') %}
                <form class="form-inline">
-                   <input type="text" class="input" placeholder="Mot clés" name="search">
+                   <input type="text" class="input" placeholder="{% trans %}Mots clés{% endtrans %}" name="search">
                    <select name="category">
-                       <option value="">Toutes les catégories</option>
+                       <option value="">{% trans %}Toutes les catégories{% endtrans %}</option>
                        {% for category in categories %}
-                           <option value="{{ category.id }}">{{ category }}</option>
+                           <option value="{{ category.id }}">{{ category.getTitleLang(app.request.get('_locale')) }}</option>
                        {% endfor %}
                    </select>
                    <select name="location">
-                       <option value="">N'importe ou</option>
+                       <option value="">{% trans %}N'importe ou{% endtrans %}</option>
                        {% for location in locations %}
                            <option value="{{ location.id }}">{{ location }}</option>
                        {% endfor %}
                    </select>
                    <br/><br/>
-                   <input type="checkbox" value="CDI" name="type" /> CDI &nbsp;&nbsp;
-                   <input type="checkbox" value="CDD" name="type" /> CDD &nbsp;&nbsp;
-                   <input type="checkbox" value="Intérim" name="type" /> Itérim &nbsp;&nbsp;
-                   <input type="checkbox" value="Emploi formation" name="type" /> Emploi formation &nbsp;&nbsp;
-                   <input type="checkbox" value="Stage" name="type" /> Stage &nbsp;&nbsp;
-                   <button id="search" type="button" class="btn">Rechercher un poste</button>
+                   <input type="checkbox" value="CDI" name="type" /> {% trans %}CDI{% endtrans %} &nbsp;&nbsp;
+                   <input type="checkbox" value="CDD" name="type" /> {% trans %}CDD{% endtrans %} &nbsp;&nbsp;
+                   <input type="checkbox" value="Intérim" name="type" /> {% trans %}Itérim{% endtrans %} &nbsp;&nbsp;
+                   <input type="checkbox" value="Emploi formation" name="type" /> {% trans %}Emploi formation{% endtrans %} &nbsp;&nbsp;
+                   <input type="checkbox" value="Stage" name="type" /> {% trans %}Stage{% endtrans %} &nbsp;&nbsp;
+                   <input id="search1" type="submit" class="btn btn-info" value="{% trans %}Rechercher un poste{% endtrans %}"/>
                </form>
            {% endif %}
 
@@ -70,7 +70,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-            $('#search').click(function(){
+            $('#search1').click(function(){
 
                 $.ajax({
                    url: "{{ path('search') }}",
@@ -82,6 +82,8 @@
 
                    }
                 });
+
+                return false;
 
 
             });

@@ -5,24 +5,24 @@
         <!-- 1st row -->
         <div class="row-fluid">
             <div class="span4">
-                <h1 class="title">Questions?</h1>
+                <h1 class="title">{% trans %}Questions?{% endtrans %}</h1>
                 <hr>
                 <div class="done">
                     <div class="alert alert-success">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                        Votre message a bien été envoyé!
+                        {% trans %}Votre message a bien été envoyé!{% endtrans %}
                     </div>
                 </div>
-                <form method="post" action="contact.php" id="contactform">
+                <form method="post" action="{{ path('contact') }}" id="contactform">
                     <div class="form">
                         <div class="controls controls-row">
-                            <input class="span6" type="text" name="name" placeholder="Nom">
-                            <input class="span6" type="text" name="email" placeholder="E-mail">
+                            <input class="span6" type="text" name="name" placeholder="{% trans %}Nom{% endtrans %}">
+                            <input class="span6" type="text" name="email" placeholder="{% trans %}E-mail{% endtrans %}">
                         </div>
                         <div class="controls">
-                            <textarea class="span12" name="comment" rows="4" placeholder="Message"></textarea>
+                            <textarea class="span12" name="comment" rows="4" placeholder="{% trans %}Message{% endtrans %}"></textarea>
                         </div>
-                        <input type="submit" id="submit" class="btn" value="Envoyer">
+                        <input type="submit" id="submit" class="btn" value="{% trans %}Envoyer{% endtrans %}">
                     </div>
                 </form>
             </div>
@@ -61,6 +61,7 @@
 <script src="/js/plugins.js"></script>
 <script src="/js/prettyPhoto.js"></script>
 <script src="/js/custom.js"></script>
+<script src="/js/thickbox.js"></script>
 <!-- CALL CAMERA SLIDER -->
 <script>
     jQuery(function(){

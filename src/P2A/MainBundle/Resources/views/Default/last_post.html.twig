@@ -1,0 +1,5 @@
+<ul>
+    {% for post in posts %}
+        <li>{% trans %}Poste{% endtrans %}: {{ post.getTitleLang(app.request.get('_locale')) }}</li>
+    {% endfor %}
+</ul>

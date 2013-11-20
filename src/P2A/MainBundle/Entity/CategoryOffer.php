@@ -90,5 +90,11 @@ class CategoryOffer
         return $this->nameEn;
     }
 
+    public function getTitleLang($lang = 'fr')
+    {
+        if ($lang == 'fr')
+            return $this->name;
+        return $this->nameEn;
+    }
 
 }

@@ -11,7 +11,19 @@
     <!-- SLIDER -->
     <div class="row-fluid">
         <div class="camera_wrap pattern_4 camera_emboss" id="camera_wrap_4">
-            <div data-src="/img/demo/img2.jpg">
+            <div data-src="/img/demo/img1.jpg">
+                <div class="camera_caption fadeFromRight">
+                    <h1>{% trans %}Candidats{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
+                    </h1>
+							<span>
+							{{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'candidats'})) }}
+                                <br/>
+                            {{ render(controller("P2AMainBundle:Default:lastPost")) }}
+							</span>
+
+                </div>
+            </div>
+            <div data-src="/img/demo/img3.jpg">
                 <div class="camera_caption fadeFromTop">
                     <h1>{% trans %}Clients{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a></h1>
 							<span>
@@ -19,16 +31,7 @@
 							</span>
                 </div>
             </div>
-            <div data-src="/img/demo/img1.jpg">
-                <div class="camera_caption fadeFromRight">
-                    <h1>{% trans %}Candidats{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
-                    </h1>
-							<span>
-							{{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'candidats'})) }}
-							</span>
-                </div>
-            </div>
-            <div data-src="/img/demo/img3.jpg">
+            <div data-src="/img/demo/img2.jpg">
                 <div class="camera_caption fadeFromRight">
                     <h1>{% trans %}P2A Recruitment{% endtrans %}<a href="#" class="sliderlink"><i class="icon-link"></i></a>
                     </h1>

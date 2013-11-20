@@ -56,6 +56,7 @@ class PostAdmin extends Admin
     {
         $formMapper
             ->with('General')
+            ->add('createdAt', null, array('label' => 'Crée le'))
             ->add('title', null, array('label' => 'Titre'))
             ->add('titleEn', null, array('label' => 'Titre Anglais'))
             ->add('description', 'textarea', array( 'label' => 'Description', 'attr' => array('data-theme' => 'advanced', 'class' => 'tinymce')))
