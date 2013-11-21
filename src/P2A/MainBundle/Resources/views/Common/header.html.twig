@@ -34,7 +34,7 @@
                     <li><a href="{{ path('view_page', {'block': 'evolve'}) }}">{% trans %}Evoluer au Luxembourg{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
                     <li style="float: right;margin-left: 130px">
-                        {% set fr = 'http://' ~ app.request.host ~ '/fr'%}
+                        {% set fr = 'http://' ~ app.request.host%}
                         {% set en = 'http://' ~ app.request.host ~ '/en'%}
                         <a style="float: right;padding-left: 2px" href="{{ fr }}"><img src="/img/fr.png"/></a>&nbsp;&nbsp;
                         <a style="float: right" href="{{ en }}"><img src="/img/us.png"/></a>
