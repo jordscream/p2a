@@ -69,7 +69,7 @@
         <div class="span12">
             <h1>{% trans %}Société{% endtrans %} <span class="primarycolor">P2A Recruitment</span></h1>
             <p class="featured lead bottom10">
-                {% trans %}texte à définir{% endtrans %}
+                {{ render(controller("P2AMainBundle:Default:shortDescription", {'block' : 'home'})) }}
             </p>
         </div>
     </div>
