@@ -3,48 +3,8 @@
     <hr>
 <div>
     <h1 class="blue">
-        {{ post.getTitleLang(app.request.get('_locale')) }}
-        <a href="{{ path('postuler') }}?keepThis=true&TB_iframe=truewidth=700" class="btn btn-warning thickbox" style="float: right">{% trans %}Postuler{% endtrans %}</a>
+        <a href="{{ path('post_view', {'id' : post.id}) }}">{{ post.getTitleLang(app.request.get('_locale')) }} - {{ post.getLocationLang(app.request.get('_locale'))|raw  }}</a>
     </h1>
-    <p>
-        <h4>{% trans %}Description du poste{% endtrans %}</h4>
-        {{ post.getDescriptionLang(app.request.get('_locale'))|raw  }}
-    </p>
-    <p>
-        <h4>{% trans %}Responsabilité{% endtrans %}</h4>
-        {{ post.getResponsabilityLang(app.request.get('_locale'))|raw  }}
-    </p>
-    <p>
-        <h4>{% trans %}Profil{% endtrans %}</h4>
-        {{ post.getProfileLang(app.request.get('_locale'))|raw  }}
-    </p>
-
-    <div style="float: left">
-        <div style="float: left;">
-            <h4>{% trans %}Type d'emploi{% endtrans %}</h4>
-            {{ post.getCategoryLang(app.request.get('_locale'))|raw  }}
-        </div>
-        <div style="float: left;margin-left: 20px">
-            <h4>{% trans %}Lieu{% endtrans %}</h4>
-            {{ post.getLocationLang(app.request.get('_locale'))|raw  }}
-        </div>
-        <div style="float: left;margin-left: 20px">
-            <h4>{% trans %}Salaire{% endtrans %}</h4>
-            {{ post.salaire|raw  }}
-        </div>
-        <div style="float: left;margin-left: 20px">
-            <h4>{% trans %}Contact{% endtrans %}</h4>
-            {{ post.contact|raw  }}
-        </div>
-        <div style="float: left;margin-left: 20px">
-            <h4>{% trans %}Contrat{% endtrans %}</h4>
-            {{ post.typeContrat|raw  }}
-        </div>
-        <div style="float: left;margin-left: 20px">
-            <h4>{% trans %}Date de début{% endtrans %}</h4>
-            {{ post.dateStart|date('d/m/Y')  }}
-        </div>
-    </div>
 </div>
 
 {% endfor %}

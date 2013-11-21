@@ -18,6 +18,17 @@ class DefaultController extends Controller
         return array();
     }
 
+    /**
+     * @Route("/post/{id}.html", name="post_view")
+     * @Template("P2AMainBundle:Default:post_view.html.twig")
+     */
+    public function postViewAction($id)
+    {
+        $post = $this->getDoctrine()->getRepository('P2AMainBundle:Post')->findOneBy(array('id' => $id));
+
+        return array('post' => $post);
+    }
+
 
     /**
      * @Route("/contact.html", name="contact")
