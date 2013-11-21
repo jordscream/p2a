@@ -21,17 +21,17 @@
         <div class="nav-collapse collapse">
             <div class="navbar-inner">
                 <ul class="nav">
-                    <li class="active selected"><a href="{{ path('homepage') }}">{% trans %}Accueil{% endtrans %}</a></li>
+                    <li class="{% if (active is defined and active <=1) or active is not defined %}active selected{% endif %}"><a href="{{ path('homepage') }}">{% trans %}Accueil{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="{{ path('view_page', {'block': 'clients'}) }}">{% trans %}Clients{% endtrans %}</a></li>
+                    <li class=" {% if (active is defined and active ==2) %}active selected{% endif %}"><a href="{{ path('view_page', {'block': 'clients'}) }}">{% trans %}Clients{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="{{ path('view_page', {'block': 'candidats'}) }}">{% trans %}Candidats{% endtrans %}</a></li>
+                    <li class=" {% if (active is defined and active ==3) %}active selected{% endif %}"><a href="{{ path('view_page', {'block': 'candidats'}) }}">{% trans %}Candidats{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="{{ path('view_page', {'block': 'p2a'}) }}">{% trans %}P2A Recruitment{% endtrans %}</a></li>
+                    <li class=" {% if (active is defined and active ==4) %}active selected{% endif %}"><a href="{{ path('view_page', {'block': 'p2a'}) }}">{% trans %}P2A Recruitment{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="{{ path('view_page', {'block': 'contact'}) }}">{% trans %}Contact{% endtrans %}</a></li>
+                    <li class=" {% if (active is defined and active ==5) %}active selected{% endif %}"><a href="{{ path('view_page', {'block': 'contact'}) }}">{% trans %}Contact{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
-                    <li><a href="{{ path('view_page', {'block': 'evolve'}) }}">{% trans %}Evoluer au Luxembourg{% endtrans %}</a></li>
+                    <li class=" {% if (active is defined and active ==6) %}active selected{% endif %}"><a href="{{ path('view_page', {'block': 'evolve'}) }}">{% trans %}Evoluer au Luxembourg{% endtrans %}</a></li>
                     <li class="divider-vertical"></li>
                     <li style="float: right;margin-left: 130px">
                         {% set fr = 'http://' ~ app.request.host%}

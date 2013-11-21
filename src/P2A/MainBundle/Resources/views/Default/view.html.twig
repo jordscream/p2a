@@ -5,7 +5,25 @@
     <div class="topheader"></div>
     <div class="lineborderbottom"></div>
 
-    {% include "P2AMainBundle:Common:header.html.twig" %}
+    {% set active = 1 %}
+    {% if article.blockName == 'clients' %}
+        {% set active = 2 %}
+    {% endif %}
+    {% if article.blockName == 'candidats' %}
+        {% set active = 3 %}
+    {% endif %}
+    {% if article.blockName == 'p2a' %}
+        {% set active = 4 %}
+    {% endif %}
+    {% if article.blockName == 'contact' %}
+        {% set active = 5 %}
+    {% endif %}
+    {% if article.blockName == 'evolve' %}
+        {% set active = 6 %}
+    {% endif %}
+
+
+    {% include "P2AMainBundle:Common:header.html.twig" with {'active': active} %}
     <div class="body">
     <div class="container">
     <!-- SLIDER -->
