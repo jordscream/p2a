@@ -28,8 +28,8 @@ class DefaultController extends Controller
         $message = \Swift_Message::newInstance()
             ->setSubject("Un demande de contact sur le site P2A")
             ->setFrom("noreply@p2arecruitment.com")
-            //->setTo("cv@p2arecruitment.com")
-            ->setTo("jordan.samouh@ylly.fr")
+            ->setTo("cv@p2arecruitment.com")
+            //->setTo("jordan.samouh@ylly.fr")
             ->setBody($this->renderView("P2AMainBundle:Default:mail2.html.twig", array('name' => $this->getRequest()->get('name'), 'email' => $this->getRequest()->get('email'), 'comment' => $this->getRequest()->get('comment'))), 'text/html')
         ;
 
@@ -142,8 +142,8 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject("Un candidat a postulé")
                 ->setFrom("noreply@p2arecruitment.com")
-                //->setTo("cv@p2arecruitment.com")
-                ->setTo("jordan.samouh@ylly.fr")
+                ->setTo("cv@p2arecruitment.com")
+                //->setTo("jordan.samouh@ylly.fr")
                 ->setBody($this->renderView("P2AMainBundle:Default:mail.html.twig", array('name1' => $name1, 'name2' => $name2, 'name' => $name, 'firstname' => $firstname, 'email' => $email, 'tel' => $tel, 'commentaire' => $commentaire)), 'text/html')
             ;
 
