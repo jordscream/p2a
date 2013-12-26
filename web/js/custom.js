@@ -113,7 +113,7 @@ jQuery(document).ready(function ($) {
 					$(".form").find('input[type=text], textarea').val("");
 					
 				//if contact.php returned 0/false (send mail failed)
-				} else alert('Sorry, unexpected error. Please try again later.');				
+				} else alert('Sorry, code unvalid');
 			}		
 		});
 		

@@ -2,11 +2,15 @@
 
 {% block body %}
 <div style="margin-left: 25px">
-    {% if (status is defined) %}
+    {% if (status is defined and status == "ok") %}
         <div class="alert alert-success">
             {% trans %}Votre candidature a bien été envoyé!{% endtrans %}
         </div>
-    {% else %}
+    {% elseif (status is defined and status == "notok")  %}
+        <div class="alert alert-error">
+            {% trans %}Vous avez mal tapé le code, veuillez recommencer!{% endtrans %}
+        </div>
+    {% else  %}
     <form role="form" action="{{ path('postuler') }}?id={{ id }}" method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleInputEmail1">{% trans %}Nom{% endtrans %}</label>
@@ -39,6 +43,14 @@
             <input type="file" id="exampleInputFile" name="motivation">
             <p class="help-block">{% trans %}Uploader votre lettre de motivation ici{% endtrans %}</p>
         </div>
+
+        <div class="form-group">
+            <label for="exampleInputFile">{% trans %}Taper le nombre{% endtrans %}</label>
+            <input type="text" name="captcha" style="width:150px;margin: 0"/>
+            <img src="{{ path('captcha') }}"/>
+        </div>
+
+        <br style="clear: both"/>
 
         <button type="submit" class="btn btn-info">{% trans %}Postuler{% endtrans %}</button>
     </form>

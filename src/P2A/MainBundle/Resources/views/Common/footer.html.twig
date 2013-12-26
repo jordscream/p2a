@@ -22,6 +22,11 @@
                         <div class="controls">
                             <textarea class="span12" name="comment" rows="4" placeholder="{% trans %}Message{% endtrans %}"></textarea>
                         </div>
+                        <div class="controls">
+                            <input type="text" name="captcha" style="width:150px;margin: 0" placeholder="{% trans %}Write the number{% endtrans %}"/>
+                            <img src="{{ path('captcha') }}"/>
+                        </div>
+                        <br/>
                         <input type="submit" id="submit" class="btn" value="{% trans %}Envoyer{% endtrans %}">
                     </div>
                 </form>

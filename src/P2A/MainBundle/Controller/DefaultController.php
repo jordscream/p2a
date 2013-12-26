@@ -19,6 +19,27 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/captcha", name="captcha")
+     */
+    public function captchaAction()
+    {
+        $this->get('session')->set('captcha', rand(1000,9999));
+
+        $img = imagecreatetruecolor(70, 30);
+
+        $fill_color=imagecolorallocate($img,255,255,255);
+        imagefilledrectangle($img, 0, 0, 70, 30, $fill_color);
+        $text_color=imagecolorallocate($img,10,10,10);
+        $font = $_SERVER['DOCUMENT_ROOT'].'/28DaysLater.ttf';
+        imagettftext($img, 23, 0, 5,30, $text_color, $font, $this->get('session')->get('captcha'));
+
+        header("Content-type: image/jpeg");
+        imagejpeg($img);
+        imagedestroy($img);
+        exit;
+    }
+
+    /**
      * @Route("/post/{id}.html", name="post_view")
      * @Template("P2AMainBundle:Default:post_view.html.twig")
      */
@@ -36,6 +57,10 @@ class DefaultController extends Controller
      */
     public function contactAction()
     {
+        if ($this->getRequest()->get('captcha', null) != $this->get('session')->get('captcha'))
+        {
+            return new Response("0");
+        }
         $message = \Swift_Message::newInstance()
             ->setSubject("Un demande de contact sur le site P2A")
             ->setFrom("noreply@p2arecruitment.com")
@@ -135,6 +160,12 @@ class DefaultController extends Controller
 
         if ($this->getRequest()->getMethod() == "POST")
         {
+
+            if ($this->getRequest()->get('captcha', null) != $this->get('session')->get('captcha'))
+            {
+                return array('status' => 'notok');
+            }
+
             $name = $this->getRequest()->get('name', '');
             $firstname = $this->getRequest()->get('firstname', '');
             $email = $this->getRequest()->get('email', '');
@@ -153,8 +184,8 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject("Un candidat a postulé")
                 ->setFrom("noreply@p2arecruitment.com")
-                ->setTo("cv@p2arecruitment.com")
-                //->setTo("jordan.samouh@ylly.fr")
+                //->setTo("cv@p2arecruitment.com")
+                ->setTo("jordan.samouh@ylly.fr")
                 ->setBody($this->renderView("P2AMainBundle:Default:mail.html.twig", array('name1' => $name1, 'name2' => $name2, 'name' => $name, 'firstname' => $firstname, 'email' => $email, 'tel' => $tel, 'commentaire' => $commentaire)), 'text/html')
             ;
 
